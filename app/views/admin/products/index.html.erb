@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th width="80%">名称</th>
+                    <th>价格</th>
+                    <th>数量</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @products.each do |product| %>
+                    <tr>
+                        <td><%= link_to admin_product_path(product)%></td>
+                        <td><%= product.price %></td>
+                        <td><%= product.quantity %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
