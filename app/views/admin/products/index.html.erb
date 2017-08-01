@@ -16,9 +16,16 @@
         <% @products.each do |product| %>
             <tr>
                 <td><%= product.id%></td>
-                <td><%= link_to admin_product_path(product)%></td>
+                <td><%= link_to product_path(product) do%></td>
+                    <% if product.image.present? %>
+                        <%= image_tag(product.image.thumb.rul, class: "thunmbnail")%>
+                    <% else %>
+                        <%= image_tag("http://placehold.it/200x200&text=No Pic", class: :thunmbnail)%>
+                    <% end %>
+                <% end %>
+                <td><%= product.title %></td>
                 <td><%= product.price %></td>
-                <td><%= product.quantity %></td>
+                <td><%= link_to("Edit", edit_admin_product_path(product)) %></td>
             </tr>
         <% end %>
     </tbody>
